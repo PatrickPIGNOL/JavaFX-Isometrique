@@ -44,7 +44,7 @@ public class TileMap
 	
 	public void mUpdate(double pDeltaTime)
 	{
-
+		
 	}
 	
 	public void mDraw(GraphicsContext pGraphicsContext)	

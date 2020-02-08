@@ -170,6 +170,7 @@ public class GameApplication extends Application
 	
 	public void mStart()
 	{
+		
 	}
 	
 	public void mUpdate(double pDeltaTime)
