@@ -113,7 +113,7 @@ public class GameApplication extends Application
 		this.aFPSTime += vDeltaTime;
 		
 		double vNanoTimePerSeconds = 1000000000.0;
-		double vFPS = 120;
+		double vFPS = 60;
 		double vNanoTimePerFPS = vNanoTimePerSeconds / vFPS;
 		this.mUpdate(vDeltaTime/vNanoTimePerSeconds);
         // limit acceleration card overheat and CPU usage ...
@@ -125,10 +125,10 @@ public class GameApplication extends Application
 	    	this.mDraw(this.aGraphicsContext);
 			//this.mDrawFPS(vDeltaTime);
 			this.aFPSTime = 0.0;
-		}	
+		}
 		
         if(this.aTime > vNanoTimePerSeconds)
-		{			
+		{
         	this.aFPS = this.aFrameCount;
 			this.aFrameCount = 0.0;
 			this.aTime = 0.0;
@@ -144,16 +144,16 @@ public class GameApplication extends Application
 		Image vTileSheet = new Image("2DTiles.png");
 		Image vTileSheet3D = new Image("3DTiles.png");
 		List<List<Integer>> vTable = this.mCreateMap();
-		this.aTileMap = new TileMap(vTileSheet, vTileSheet3D, 32, 32, 64, 36, vTable, 10, 1);
+		this.aTileMap = new TileMap(vTileSheet, vTileSheet3D, 32, 32, 64, 36, vTable, 20.0, 1.0);
 	}
 	
 	private List<List<Integer>> mCreateMap()
 	{		
 		List<List<Integer>> vTable = new ArrayList<List<Integer>>();
-		for(int vY = 0; vY < 10; vY++)
+		for(int vY = 0; vY < 500; vY++)
 		{
 			List<Integer> vLine = new ArrayList<Integer>();
-			for(int vX = 0; vX < 10; vX++)
+			for(int vX = 0; vX < 500; vX++)
 			{
 				int vValue = this.aRandom.nextInt(2);
 				vLine.add(vValue);
@@ -199,6 +199,7 @@ public class GameApplication extends Application
 		{
 			this.mNewMap();
 		}
+		this.aTileMap.mKeyPress(e);
 	}
 	
 	private void mOnKeyReleased(KeyEvent e)
